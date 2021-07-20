@@ -10,7 +10,7 @@ chunks = 32 * 1024
 
 # encrypt file with filenamein and the given key
 def encrypt(key, filenamein):
-    out_file_name = os.path.basename(filenamein) + "/encrypted-" + os.path.basename(filenamein)
+    out_file_name = os.path.dirname(filenamein) + "/encrypted-" + os.path.basename(filenamein)
     file_size = str(os.path.getsize(filenamein)).zfill(16) # 0000000000032001
     IV = Random.new().read(16)
     encryptor = AES.new(key, AES.MODE_CFB, IV)
